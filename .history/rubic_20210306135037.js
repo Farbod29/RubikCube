@@ -13,20 +13,8 @@ function Rubic(up, down, right, left, front, back, Name, rubicSize) {
   this.left = left;
   this.front = front;
   this.back = back;
-  function changeTwoSerfaveColor(input1, input2) {
-    console.log(input1);
-  }
   this.moveUp = function () {
-    changeTwoSerfaveColor(up, down);
-  };
-
-  this.printRubic = function () {
-    console.log("up", up);
-    console.log("down", down);
-    console.log("right", right);
-    console.log("left", left);
-    console.log("front", front);
-    console.log("back", back);
+    console.log(up);
   };
   this.NewRubic = function () {
     this.up[0] = "sosis";
@@ -55,7 +43,6 @@ const defult = new Rubic(
 );
 
 defult.NewRubic();
-//defult.printRubic();
 defult.moveUp();
 /**
  * 

@@ -55,7 +55,7 @@ const defult = new Rubic(
 );
 
 defult.NewRubic();
-//defult.printRubic();
+defult.printRubic();
 defult.moveUp();
 /**
  * 
