@@ -3,7 +3,7 @@ const { SSL_OP_SINGLE_DH_USE } = require("constants");
 
 console.log("Hello Object orented Rubik !");
 
-function Rubic(up, down, right, left, front, back, Name, rubicSize) {
+function Rubik(up, down, right, left, front, back, Name, rubicSize) {
   // Note: Don't worry about 'this' yet. You'll understand it later. Follow along for now.
   this.Name = Name;
   this.rubicSize = rubicSize;
@@ -13,18 +13,8 @@ function Rubic(up, down, right, left, front, back, Name, rubicSize) {
   this.left = left;
   this.front = front;
   this.back = back;
-  // function changeforSurfaceColor(input1, input2, input3, input4) {
-  //   temp = input1;
-  //   for (let i = 0; i < 3; i++) {
-  //     temp = input4[i];
-  //     input4[i] = input3[i];
-  //     input3[i] = input2[i];
-  //     input2[i] = input1[i];
-  //     input1[i] = temp;
-  //   }
-  // }
 
-  function changeforSurfaceColor2(input1, input2, input3, input4) {
+  function changeforSurfaceColorUpandUpCC(input1, input2, input3, input4) {
     const temp1 = input1.map((x) => x);
     const temp2 = input2.map((x) => x);
     const temp3 = input3.map((x) => x);
@@ -36,18 +26,38 @@ function Rubic(up, down, right, left, front, back, Name, rubicSize) {
       input1[i] = temp4[i];
     }
   }
+  function changeforSurfaceColorRightandRightCC(
+    input1,
+    input2,
+    input3,
+    input4
+  ) {
+    const temp1 = input1.map((x) => x);
+    const temp2 = input2.map((x) => x);
+    const temp3 = input3.map((x) => x);
+    const temp4 = input4.map((x) => x);
+    let j = 2;
+    for (let i = 0; i < 3; i++) {
+      input2[j] = temp1[j];
+      input3[j] = temp2[j];
+      input4[j] = temp3[j];
+      input1[j] = temp4[j];
+      console.log("temp1[i]", temp1[j], j);
+      j = j + 3;
+    }
+  }
 
   this.moveUp = function () {
-    changeforSurfaceColor2(back, right, front, left);
+    changeforSurfaceColorUpandUpCC(back, right, front, left);
   };
   this.moveUpCC = function () {
-    changeforSurfaceColor2(right, back, left, front);
+    changeforSurfaceColorUpandUpCC(right, back, left, front);
   };
   this.moveRight = function () {
-    changeforSurfaceColor(back, right, front, left);
+    changeforSurfaceColorRightandRightCC(front, up, back, down);
   };
   this.moveRightCC = function () {
-    changeforSurfaceColor(back, right, front, left);
+    changeforSurfaceColor(down, back, front, left);
   };
   this.moveLeft = function () {
     changeforSurfaceColor(back, right, front, left);
@@ -85,7 +95,7 @@ function Rubic(up, down, right, left, front, back, Name, rubicSize) {
  * [BackGreen]    B
  * 
 /**/
-const defult = new Rubic(
+const defultRubik = new Rubik(
   ["o", "o", "o", "o", "o", "o", "o", "o", "o"],
   ["r", "r", "r", "r", "r", "r", "r", "r", "r"],
   ["b", "b", "b", "b", "b", "b", "b", "b", "b"],
@@ -98,8 +108,8 @@ const defult = new Rubic(
 
 //defult.NewRubic();
 //defult.printRubic();
-
-defult.printRubic();
+defultRubik.moveRight();
+defultRubik.printRubic();
 /**
  * 
  * 
