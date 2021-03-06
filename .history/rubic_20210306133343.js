@@ -14,8 +14,12 @@ function Rubic(up, down, right, left, front, back, Name, rubicSize) {
   this.front = front;
   this.back = back;
   this.moveUp = function () {
-    console.log(up);
+    console.log(hi);
   };
+
+  //   this.sayName = function () {
+  //     console.log(`I am ${firstName} ${lastName}`);
+  //   };
 }
 /**
  * 
@@ -38,7 +42,7 @@ const defult = new Rubic(
   "defult rubic",
   29
 );
-defult.moveUp();
+console.log("defult down 3 ", defult);
 
 /**
  * 

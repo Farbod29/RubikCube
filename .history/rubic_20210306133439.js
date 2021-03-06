@@ -13,9 +13,13 @@ function Rubic(up, down, right, left, front, back, Name, rubicSize) {
   this.left = left;
   this.front = front;
   this.back = back;
-  this.moveUp = function () {
+  this.moveUp = function (up) {
     console.log(up);
   };
+
+  //   this.sayName = function () {
+  //     console.log(`I am ${firstName} ${lastName}`);
+  //   };
 }
 /**
  * 

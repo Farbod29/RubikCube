@@ -1,7 +1,7 @@
 const { doDuring } = require("async");
 const { SSL_OP_SINGLE_DH_USE } = require("constants");
 
-console.log("Hello Rubik !");
+console.log("Hello Robic 2! ");
 
 function Rubic(up, down, right, left, front, back, Name, rubicSize) {
   // Note: Don't worry about 'this' yet. You'll understand it later. Follow along for now.
@@ -13,19 +13,19 @@ function Rubic(up, down, right, left, front, back, Name, rubicSize) {
   this.left = left;
   this.front = front;
   this.back = back;
-  this.moveUp = function () {
-    console.log(up);
-  };
+  //   this.sayName = function () {
+  //     console.log(`I am ${firstName} ${lastName}`);
+  //   };
 }
 /**
  * 
  * defultRubic = 
- * [UpYello]      UP
- * [DownWhite]    down
- * [RightRed]     R
- * [LeftOrange]   L
- * [FrontBlue]    F
- * [BackGreen]    B
+ * [UpYello]
+ * [DownWhite]
+ * [RightRed]
+ * [LeftOrange]
+ * [FrontBlue]
+ * [BackGreen]
  * 
 /**/
 const defult = new Rubic(
@@ -38,7 +38,7 @@ const defult = new Rubic(
   "defult rubic",
   29
 );
-defult.moveUp();
+console.log("defult up", defult.up);
 
 /**
  * 
