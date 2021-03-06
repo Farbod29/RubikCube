@@ -46,6 +46,38 @@ function Rubik(up, down, right, left, front, back, Name, rubicSize) {
       j = j + 3;
     }
   }
+  function changeforSurfaceColorLeftandLeftCC(input1, input2, input3, input4) {
+    const temp1 = input1.map((x) => x);
+    const temp2 = input2.map((x) => x);
+    const temp3 = input3.map((x) => x);
+    const temp4 = input4.map((x) => x);
+    let j = 0;
+    for (let i = 0; i < 3; i++) {
+      input2[j] = temp1[j];
+      input3[j] = temp2[j];
+      input4[j] = temp3[j];
+      input1[j] = temp4[j];
+      console.log("temp1[i]", temp1[j], j);
+      j = j + 3;
+    }
+  }
+  function changeforSurfaceColorFrontandFrontCC(
+    input1,
+    input2,
+    input3,
+    input4
+  ) {
+    const temp1 = input1.map((x) => x);
+    const temp2 = input2.map((x) => x);
+    const temp3 = input3.map((x) => x);
+    const temp4 = input4.map((x) => x);
+    for (let i = 0; i < 3; i++) {
+      input2[i] = temp1[i];
+      input3[i] = temp2[i];
+      input4[i] = temp3[i];
+      input1[i] = temp4[i];
+    }
+  }
 
   this.moveUp = function () {
     changeforSurfaceColorUpandUpCC(back, right, front, left);
@@ -57,19 +89,19 @@ function Rubik(up, down, right, left, front, back, Name, rubicSize) {
     changeforSurfaceColorRightandRightCC(front, up, back, down);
   };
   this.moveRightCC = function () {
-    changeforSurfaceColor(down, back, front, left);
+    changeforSurfaceColorRightandRightCC(down, back, up, front);
   };
   this.moveLeft = function () {
-    changeforSurfaceColor(back, right, front, left);
+    changeforSurfaceColorLeftandLeftCC(back, up, front, down);
   };
   this.moveLeftCC = function () {
-    changeforSurfaceColor(back, right, front, left);
+    changeforSurfaceColorLeftandLeftCC(down, front, up, back);
   };
-  this.moveForward = function () {
-    changeforSurfaceColor(back, right, front, left);
+  this.moveForont = function () {
+    changeforSurfaceColorFrontandFrontCC(up, right, down, left);
   };
-  this.moveForwardCC = function () {
-    changeforSurfaceColor(back, right, front, left);
+  this.moveForontCC = function () {
+    changeforSurfaceColorFrontandFrontCC(left, down, right, up);
   };
 
   this.printRubic = function () {
@@ -106,14 +138,32 @@ const defultRubik = new Rubik(
   9
 );
 
-//defult.NewRubic();
-//defult.printRubic();
-defultRubik.moveRight();
+const rendomRubic = new Rubik(
+  ["b", "w", "g", "w", "w", "y", "w", "y", "y"],
+  ["g", "g", "y", "y", "y", "g", "r", "b", "o"],
+  ["o", "r", "w", "y", "b", "b", "r", "o", "b"],
+  ["o", "g", "r", "w", "g", "w", "y", "o", "w"],
+  ["b", "g", "g", "r", "r", "b", "r", "r", "g"],
+  ["o", "b", "y", "r", "o", "o", "w", "o", "b"],
+  "defult rubic",
+  9
+);
+//defultRubik.moveLeft();
+defultRubik.moveForont();
+defultRubik.moveForontCC();
+defultRubik.moveForont();
+defultRubik.moveForontCC();
+defultRubik.moveRightCC();
 defultRubik.printRubic();
 /**
- * 
- * 
+ * algorithm
+ * the righty ALG 
 /**/
-//let moveUp = () => {};
-
-// console.log(rubic);
+function TherightyALG() {
+  defultRubik.moveRight();
+  defultRubik.moveUp();
+  defultRubik.moveRightCC();
+  defultRubik.moveUpCC();
+}
+//TherightyALG;
+//defultRubik.printRubic();
