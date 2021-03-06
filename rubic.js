@@ -13,11 +13,27 @@ function Rubic(up, down, right, left, front, back, Name, rubicSize) {
   this.left = left;
   this.front = front;
   this.back = back;
-  function changeTwoSerfaveColor(input1, input2) {
-    console.log(input1);
+  function changeforSurfaceColor(input1, input2, input3, input4) {
+    temp = input1;
+    for (let i = 0; i < 3; i++) {
+      temp = input4[i];
+      input4[i] = input3[i];
+      input3[i] = input2[i];
+      input2[i] = input1[i];
+      input1[i] = temp;
+    }
   }
   this.moveUp = function () {
-    changeTwoSerfaveColor(up, down);
+    changeforSurfaceColor(back, right, front, left);
+  };
+  this.moveUpCC = function () {
+    changeforSurfaceColor(right, front, left, back);
+  };
+  this.moveUp = function () {
+    changeforSurfaceColor(back, right, front, left);
+  };
+  this.moveUp = function () {
+    changeforSurfaceColor(back, right, front, left);
   };
 
   this.printRubic = function () {
@@ -28,9 +44,9 @@ function Rubic(up, down, right, left, front, back, Name, rubicSize) {
     console.log("front", front);
     console.log("back", back);
   };
-  this.NewRubic = function () {
-    this.up[0] = "sosis";
-  };
+  // this.NewRubic = function () {
+  //   this.up[0] = "sosis";
+  // };
 }
 /**
  * 
@@ -44,23 +60,25 @@ function Rubic(up, down, right, left, front, back, Name, rubicSize) {
  * 
 /**/
 const defult = new Rubic(
-  ["y", "y", "y", "y", "y", "y", "y", "y", "y"],
-  ["w", "w", "w", "w", "w", "w", "w", "w", "w"],
-  ["r", "r", "r", "r", "r", "r", "r", "r", "r"],
   ["o", "o", "o", "o", "o", "o", "o", "o", "o"],
+  ["r", "r", "r", "r", "r", "r", "r", "r", "r"],
   ["b", "b", "b", "b", "b", "b", "b", "b", "b"],
   ["g", "g", "g", "g", "g", "g", "g", "g", "g"],
+  ["w", "w", "w", "w", "w", "w", "w", "w", "w"],
+  ["y", "y", "y", "y", "y", "y", "y", "y", "y"],
+
   "defult rubic",
   9
 );
 
-defult.NewRubic();
+//defult.NewRubic();
 //defult.printRubic();
 defult.moveUp();
+defult.printRubic();
 /**
  * 
  * 
 /**/
-let moveUp = () => {};
+//let moveUp = () => {};
 
 // console.log(rubic);
